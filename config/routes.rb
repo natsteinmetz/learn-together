@@ -1,4 +1,13 @@
 LearnTogether::Application.routes.draw do
+
+  resources :friends
+
+
+  root to: 'topics#index'
+  resources :topics
+  resources :friends
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
