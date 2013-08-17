@@ -2,6 +2,14 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<% if current_user != nil %>
+<% buddy_app_name = ENV['BUDDY_APP_NAME'] %>
+<% buddy_app_key = ENV['BUDDY_APP_KEY'] %>
+<% buddy_call = "https://webservice.buddyplatform.com/v1/UserAccount_Profile_SocialLogin?BuddyApplicationName=#{buddy_app_name}&BuddyApplicationPassword=#{buddy_app_key}&ProviderName=facebook&ProviderUserId=#{current_user.uid}&AccessToken=#{current_user.oauth_token}" %>
+<a href=<%=buddy_call%>>Buddy user data</a>
+<br><br>
+
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>

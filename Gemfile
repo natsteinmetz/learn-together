@@ -46,6 +46,7 @@ gem 'omniauth-facebook'
 group :test, :development do
   gem 'rspec-rails', '~> 2.11'
   gem 'pry-rails' #REPL - read evaluate print loop
+  gem 'dotenv-rails'
 end
 
 group :test do

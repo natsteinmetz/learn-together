@@ -1,11 +1,13 @@
 LearnTogether::Application.routes.draw do
 
-  resources :friends
-
-
   root to: 'topics#index'
+
   resources :topics
   resources :friends
+
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
 
   # The priority is based upon order of creation:
